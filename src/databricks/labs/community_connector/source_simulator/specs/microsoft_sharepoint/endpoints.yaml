@@ -1,0 +1,75 @@
+# Microsoft SharePoint via Microsoft Graph API.
+#
+# The connector hits:
+# * Azure AD OAuth token endpoint (POST) — a stub success response so the
+#   connector can build an Authorization header.
+# * Site-resolution endpoints (GET) — resolve a human-friendly site_url (or
+#   the tenant root) to the opaque composite Graph site-id. Skipped entirely
+#   when the caller supplies `site_id` directly, but modelled here so the
+#   coverage contract holds either way. These are single-entity responses.
+# * Collection endpoints (GET) — wrapped `{"value": [...]}` responses with an
+#   `@odata.nextLink` we set null so the connector stops after one page. The
+#   items/delta endpoint additionally carries a null `@odata.deltaLink`.
+#
+# The `lists` and `list_items` record corpora are bootstrapped from the
+# connector's TABLE_SCHEMAS by connector-tester; `auth_token` and `site` are
+# infra stubs committed alongside this spec.
+
+endpoints:
+  # OAuth token endpoint (client-credentials grant, called at request time).
+  - path: /{tenant_id}/oauth2/v2.0/token
+    method: POST
+    corpus: auth_token
+    response:
+      pagination_style: none
+      single_entity: true
+
+  # Site resolution — tenant root site.
+  - path: /v1.0/sites/root
+    method: GET
+    corpus: site
+    response:
+      pagination_style: none
+      single_entity: true
+
+  # Site resolution — address a site by hostname (single path segment).
+  - path: /v1.0/sites/{site_selector}
+    method: GET
+    corpus: site
+    response:
+      pagination_style: none
+      single_entity: true
+
+  # lists — enumerate the lists under a site (snapshot).
+  - path: /v1.0/sites/{site_id}/lists
+    method: GET
+    corpus: lists
+    response:
+      pagination_style: none
+      wrapper:
+        records_key: value
+        extras:
+          '@odata.nextLink': null
+
+  # list_items — full/backfill read (partitioned batch path).
+  - path: /v1.0/sites/{site_id}/lists/{list_id}/items
+    method: GET
+    corpus: list_items
+    response:
+      pagination_style: none
+      wrapper:
+        records_key: value
+        extras:
+          '@odata.nextLink': null
+
+  # list_items — delta query (incremental cdc_with_deletes path).
+  - path: /v1.0/sites/{site_id}/lists/{list_id}/items/delta
+    method: GET
+    corpus: list_items
+    response:
+      pagination_style: none
+      wrapper:
+        records_key: value
+        extras:
+          '@odata.nextLink': null
+          '@odata.deltaLink': null

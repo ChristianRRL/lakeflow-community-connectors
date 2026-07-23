@@ -1,0 +1,64 @@
+# microsoft_sharepoint Community Connector Spec
+# This file defines the specification for the connector including
+# connection parameters and allowlist options.
+
+# ============================================================================
+# Connection Parameters
+# These are provided when creating the Unity Catalog connection.
+# ============================================================================
+display_name: Microsoft SharePoint
+connection:
+  parameters:
+    - name: tenant_id
+      type: string
+      required: true
+      description: >
+        Azure AD tenant ID or verified domain name (e.g., contoso.onmicrosoft.com).
+        Found in the Azure Portal under Azure Active Directory > Overview.
+        Used to construct the OAuth 2.0 token endpoint URL for the
+        client-credentials flow.
+
+    - name: client_id
+      type: string
+      required: true
+      description: >
+        Application (client) ID of the registered Azure AD application.
+        Found on the app registration Overview page in the Azure Portal.
+        The application must have the Sites.Read.All permission
+        (with admin consent) to read SharePoint sites, lists, and items.
+
+    - name: client_secret
+      type: string
+      required: true
+      secret: true
+      description: >
+        Client secret value for the Azure AD application registration.
+        Found on the app registration Certificates & secrets page.
+        Used together with client_id to acquire app-only access tokens
+        via the OAuth 2.0 client-credentials flow.
+
+    - name: site_url
+      type: string
+      required: false
+      description: >
+        SharePoint site URL in colon-syntax format
+        (e.g., contoso.sharepoint.com:/teams/hr).
+        Resolved once at connection time to the opaque Microsoft Graph site-id
+        and cached. If omitted, defaults to the tenant root site (/sites/root).
+
+    - name: site_id
+      type: string
+      required: false
+      description: >
+        Opaque Microsoft Graph site-id in composite format
+        (hostname,spsite-id,spweb-id).
+        Use this if you already know the site-id to skip a discovery call.
+        Takes precedence over site_url if both are provided.
+
+# ============================================================================
+# External Options Allowlist
+# These table-specific options must be included in the externalOptionsAllowList
+# parameter of the UC connection to allow them to be passed through.
+# Use a comma-separated string of option names.
+# ============================================================================
+external_options_allowlist: "max_pages_per_batch,top,include_system,list_id,site_url,site_id"

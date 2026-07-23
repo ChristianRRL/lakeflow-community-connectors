@@ -1,0 +1,297 @@
+[
+  {
+    "id": "hotel-57-pk0",
+    "name": "whiskey-317",
+    "displayName": "kilo-226",
+    "description": "whiskey-611",
+    "webUrl": "whiskey-512",
+    "createdDateTime": "2024-01-28T04:01:10Z",
+    "lastModifiedDateTime": "2024-01-07T11:11:48Z",
+    "createdBy": {
+      "user": {
+        "id": "alpha-265",
+        "displayName": "tango-438"
+      },
+      "application": {
+        "id": "quebec-949",
+        "displayName": "mike-254"
+      },
+      "device": {
+        "id": "sierra-905",
+        "displayName": "hotel-724"
+      }
+    },
+    "lastModifiedBy": {
+      "user": {
+        "id": "yankee-817",
+        "displayName": "juliet-223"
+      },
+      "application": {
+        "id": "foxtrot-525",
+        "displayName": "yankee-672"
+      },
+      "device": {
+        "id": "charlie-893",
+        "displayName": "xray-183"
+      }
+    },
+    "eTag": "hotel-538",
+    "list": {
+      "contentTypesEnabled": false,
+      "hidden": false,
+      "template": "victor-794"
+    },
+    "parentReference": {
+      "id": "uniform-300",
+      "siteId": "echo-369",
+      "driveId": "victor-849",
+      "driveType": "uniform-553",
+      "path": "victor-168"
+    },
+    "sharepointIds": {
+      "listId": "victor-754",
+      "siteId": "tango-299",
+      "siteUrl": "golf-630",
+      "tenantId": "xray-142",
+      "webId": "juliet-863"
+    },
+    "system": true,
+    "site_id": "echo-637"
+  },
+  {
+    "id": "oscar-87-pk1",
+    "name": "oscar-805",
+    "displayName": "alpha-911",
+    "description": "bravo-871",
+    "webUrl": "zulu-905",
+    "createdDateTime": "2024-01-21T11:53:35Z",
+    "lastModifiedDateTime": "2024-01-30T08:45:02Z",
+    "createdBy": {
+      "user": {
+        "id": "romeo-304",
+        "displayName": "yankee-512"
+      },
+      "application": {
+        "id": "foxtrot-628",
+        "displayName": "echo-843"
+      },
+      "device": {
+        "id": "tango-746",
+        "displayName": "yankee-277"
+      }
+    },
+    "lastModifiedBy": {
+      "user": {
+        "id": "xray-739",
+        "displayName": "juliet-812"
+      },
+      "application": {
+        "id": "tango-415",
+        "displayName": "alpha-669"
+      },
+      "device": {
+        "id": "tango-150",
+        "displayName": "whiskey-473"
+      }
+    },
+    "eTag": "delta-242",
+    "list": {
+      "contentTypesEnabled": true,
+      "hidden": true,
+      "template": "lima-920"
+    },
+    "parentReference": {
+      "id": "echo-921",
+      "siteId": "yankee-981",
+      "driveId": "victor-806",
+      "driveType": "kilo-652",
+      "path": "whiskey-872"
+    },
+    "sharepointIds": {
+      "listId": "delta-506",
+      "siteId": "mike-493",
+      "siteUrl": "lima-589",
+      "tenantId": "zulu-810",
+      "webId": "romeo-152"
+    },
+    "system": true,
+    "site_id": "golf-621"
+  },
+  {
+    "id": "victor-7-pk2",
+    "name": "delta-656",
+    "displayName": "foxtrot-571",
+    "description": "xray-986",
+    "webUrl": "delta-312",
+    "createdDateTime": "2024-01-13T17:02:21Z",
+    "lastModifiedDateTime": "2024-01-02T10:51:56Z",
+    "createdBy": {
+      "user": {
+        "id": "alpha-287",
+        "displayName": "juliet-759"
+      },
+      "application": {
+        "id": "golf-399",
+        "displayName": "lima-510"
+      },
+      "device": {
+        "id": "oscar-182",
+        "displayName": "sierra-161"
+      }
+    },
+    "lastModifiedBy": {
+      "user": {
+        "id": "alpha-308",
+        "displayName": "yankee-134"
+      },
+      "application": {
+        "id": "zulu-955",
+        "displayName": "yankee-183"
+      },
+      "device": {
+        "id": "india-479",
+        "displayName": "kilo-274"
+      }
+    },
+    "eTag": "alpha-962",
+    "list": {
+      "contentTypesEnabled": true,
+      "hidden": false,
+      "template": "delta-587"
+    },
+    "parentReference": {
+      "id": "delta-244",
+      "siteId": "india-919",
+      "driveId": "november-193",
+      "driveType": "charlie-254",
+      "path": "lima-732"
+    },
+    "sharepointIds": {
+      "listId": "kilo-932",
+      "siteId": "foxtrot-894",
+      "siteUrl": "golf-698",
+      "tenantId": "uniform-480",
+      "webId": "zulu-753"
+    },
+    "system": false,
+    "site_id": "india-751"
+  },
+  {
+    "id": "tango-86-pk3",
+    "name": "foxtrot-412",
+    "displayName": "xray-188",
+    "description": "tango-563",
+    "webUrl": "foxtrot-967",
+    "createdDateTime": "2024-01-30T10:34:45Z",
+    "lastModifiedDateTime": "2024-01-10T12:03:30Z",
+    "createdBy": {
+      "user": {
+        "id": "whiskey-752",
+        "displayName": "juliet-866"
+      },
+      "application": {
+        "id": "kilo-611",
+        "displayName": "hotel-310"
+      },
+      "device": {
+        "id": "uniform-830",
+        "displayName": "zulu-435"
+      }
+    },
+    "lastModifiedBy": {
+      "user": {
+        "id": "november-290",
+        "displayName": "juliet-269"
+      },
+      "application": {
+        "id": "romeo-859",
+        "displayName": "tango-746"
+      },
+      "device": {
+        "id": "hotel-127",
+        "displayName": "romeo-921"
+      }
+    },
+    "eTag": "whiskey-244",
+    "list": {
+      "contentTypesEnabled": true,
+      "hidden": true,
+      "template": "victor-265"
+    },
+    "parentReference": {
+      "id": "delta-736",
+      "siteId": "hotel-191",
+      "driveId": "juliet-165",
+      "driveType": "alpha-258",
+      "path": "zulu-566"
+    },
+    "sharepointIds": {
+      "listId": "alpha-741",
+      "siteId": "uniform-662",
+      "siteUrl": "charlie-275",
+      "tenantId": "lima-357",
+      "webId": "november-278"
+    },
+    "system": true,
+    "site_id": "sierra-478"
+  },
+  {
+    "id": "hotel-15-pk4",
+    "name": "mike-542",
+    "displayName": "golf-373",
+    "description": "papa-229",
+    "webUrl": "victor-592",
+    "createdDateTime": "2024-01-05T22:10:40Z",
+    "lastModifiedDateTime": "2024-01-14T05:22:01Z",
+    "createdBy": {
+      "user": {
+        "id": "juliet-992",
+        "displayName": "delta-877"
+      },
+      "application": {
+        "id": "yankee-355",
+        "displayName": "mike-845"
+      },
+      "device": {
+        "id": "lima-408",
+        "displayName": "yankee-336"
+      }
+    },
+    "lastModifiedBy": {
+      "user": {
+        "id": "quebec-741",
+        "displayName": "alpha-918"
+      },
+      "application": {
+        "id": "xray-622",
+        "displayName": "foxtrot-690"
+      },
+      "device": {
+        "id": "whiskey-554",
+        "displayName": "sierra-906"
+      }
+    },
+    "eTag": "golf-141",
+    "list": {
+      "contentTypesEnabled": false,
+      "hidden": false,
+      "template": "charlie-523"
+    },
+    "parentReference": {
+      "id": "xray-911",
+      "siteId": "alpha-251",
+      "driveId": "kilo-566",
+      "driveType": "foxtrot-110",
+      "path": "juliet-897"
+    },
+    "sharepointIds": {
+      "listId": "golf-952",
+      "siteId": "mike-208",
+      "siteUrl": "bravo-471",
+      "tenantId": "echo-533",
+      "webId": "golf-536"
+    },
+    "system": false,
+    "site_id": "alpha-205"
+  }
+]
