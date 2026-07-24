@@ -1,0 +1,70 @@
+# Hackathon Austin Texas Community Connector Spec
+# This file defines the specification for the connector including
+# connection parameters and allowlist options.
+#
+# Connector: City of Austin, Texas Open Data Portal (Socrata SODA API)
+# Source: data.austintexas.gov
+#
+# Authentication:
+#   - Optional X-App-Token header for elevated rate limits.
+#   - No credentials required for public datasets (anonymous access works
+#     but is throttled to a shared per-IP rate limit).
+
+# ============================================================================
+# Display name (required for Databricks to show connection parameter prompts)
+# ============================================================================
+display_name: Hackathon Austin Texas
+
+# ============================================================================
+# Connection Parameters
+# These are provided when creating the Unity Catalog connection.
+#
+# The connector supports optional authentication via X-App-Token (sent as an
+# HTTP header). A token is not required to read public datasets but provides
+# access to higher rate limits. All other parameters are optional overrides.
+# ============================================================================
+connection:
+  parameters:
+    - name: app_token
+      type: string
+      required: false
+      secret: true
+      description: >
+        Optional Socrata app token for elevated rate limits when querying
+        the City of Austin Open Data Portal (data.austintexas.gov).
+        Register a free account at data.austintexas.gov, then generate
+        an app token from your account's developer settings. Requests without
+        a token are throttled at a lower shared-by-IP rate. Requests with
+        a valid token get their own request pool and are effectively
+        unthrottled for legitimate use.
+
+    - name: base_url
+      type: string
+      required: false
+      description: >
+        Override the default base URL for the Socrata API endpoint.
+        Defaults to 'https://data.austintexas.gov'. Only needed if the
+        City of Austin moves or changes its portal URL.
+
+    - name: page_size
+      type: string
+      required: false
+      description: >
+        Number of rows to fetch per page (default: 1000, max: 50000).
+        Socrata's API caps a single page at 50,000 rows. Larger values
+        reduce overhead but increase per-request latency; smaller values
+        enable more frequent progress updates. Must be a positive integer.
+
+# ============================================================================
+# External Options Allowlist
+# These table-specific options must be included in the externalOptionsAllowList
+# parameter of the UC connection to allow them to be passed through.
+# Use a comma-separated string of option names.
+#
+# The connector supports two table-specific options for partitioned streaming:
+#   - window_days: Number of days per partition window (default: 1).
+#     Smaller values increase partition count; larger values reduce overhead.
+#   - lookback_minutes: Minutes to backtrack on each partition window start
+#     (default: 0). Useful for covering out-of-order or delayed updates.
+# ============================================================================
+external_options_allowlist: "window_days,lookback_minutes"

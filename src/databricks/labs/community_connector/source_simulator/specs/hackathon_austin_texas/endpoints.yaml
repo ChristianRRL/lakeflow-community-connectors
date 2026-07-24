@@ -1,0 +1,105 @@
+# City of Austin, Texas Open Data Portal (Socrata SODA) endpoints.
+#
+# Every table is a Socrata dataset served at /resource/{4x4}.json.  One
+# endpoint entry per dataset so each maps to its own corpus (a single
+# {dataset_id} placeholder could only reference one corpus).  Each corpus
+# name matches a connector table so connector-tester can bootstrap it from
+# TABLE_SCHEMAS via corpus_from_schema.
+#
+# Query semantics:
+#   * $limit / $offset drive offset_limit pagination — the simulator slices
+#     the corpus accordingly.  $limit default matches the connector's page
+#     size; max is Socrata's 50,000-row page cap so the connector's request
+#     is never clamped down.
+#   * $where / $order / $select are SoQL expressions the declarative filter
+#     pipeline can't parse, so they're accepted-but-ignored.  The connector's
+#     init-time cursor cap (latest_offset -> _init_time) drives termination;
+#     the simulator returns the full (paginated) corpus for every window.
+#
+# synthesize_future_records: the connector caps its returned cursor at an
+# init-time snapshot (admission-control pattern), so a few future-dated rows
+# are injected on system_updated_at to exercise the cap in the termination
+# test.
+
+_socrata_params: &socrata_params
+  "$select": {role: ignore}
+  "$where": {role: ignore}
+  "$order": {role: ignore}
+  "$q": {role: ignore}
+  "$$app_token": {role: ignore}
+  "$limit": {role: limit, default: 1000, max: 50000}
+  "$offset": {role: offset}
+
+_socrata_response: &socrata_response
+  pagination_style: offset_limit
+
+endpoints:
+  # ---- transportation_and_mobility (28ys-ieqv) ----
+  - path: /resource/28ys-ieqv.json
+    method: GET
+    corpus: transportation_and_mobility
+    response: *socrata_response
+    params: *socrata_params
+    synthesize_future_records:
+      cursor_field: system_updated_at
+      count: 3
+
+  # ---- green_building_ratings_aggregate (dpvb-c5fy) ----
+  - path: /resource/dpvb-c5fy.json
+    method: GET
+    corpus: green_building_ratings_aggregate
+    response: *socrata_response
+    params: *socrata_params
+    synthesize_future_records:
+      cursor_field: system_updated_at
+      count: 3
+
+  # ---- solar_program_current_incentive_levels_and_available_capacity (vxq2-zjmn) ----
+  - path: /resource/vxq2-zjmn.json
+    method: GET
+    corpus: solar_program_current_incentive_levels_and_available_capacity
+    response: *socrata_response
+    params: *socrata_params
+    synthesize_future_records:
+      cursor_field: system_updated_at
+      count: 3
+
+  # ---- green_building_energy_code_compliance (i7vh-fpaj) ----
+  - path: /resource/i7vh-fpaj.json
+    method: GET
+    corpus: green_building_energy_code_compliance
+    response: *socrata_response
+    params: *socrata_params
+    synthesize_future_records:
+      cursor_field: system_updated_at
+      count: 3
+
+  # ---- green_building_developer_agreements (63mb-dbmj) ----
+  - path: /resource/63mb-dbmj.json
+    method: GET
+    corpus: green_building_developer_agreements
+    response: *socrata_response
+    params: *socrata_params
+    synthesize_future_records:
+      cursor_field: system_updated_at
+      count: 3
+
+  # ---- coa_energy_codes_timeline (xn7p-rafv) ----
+  - path: /resource/xn7p-rafv.json
+    method: GET
+    corpus: coa_energy_codes_timeline
+    response: *socrata_response
+    params: *socrata_params
+    synthesize_future_records:
+      cursor_field: system_updated_at
+      count: 3
+
+  # ---- discount_monthly_new_enrollment_by_zip (guem-bnpv) ----
+  - path: /resource/guem-bnpv.json
+    method: GET
+    corpus: discount_monthly_new_enrollment_by_zip
+    response: *socrata_response
+    params: *socrata_params
+    synthesize_future_records:
+      cursor_field: system_updated_at
+      count: 3

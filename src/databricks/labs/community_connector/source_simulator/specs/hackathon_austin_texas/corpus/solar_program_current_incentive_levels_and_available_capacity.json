@@ -1,0 +1,82 @@
+[
+  {
+    "system_id": "sierra-321",
+    "system_created_at": "2024-01-26T02:15:08Z",
+    "system_updated_at": "2024-01-01T00:00:00Z",
+    "program": "xray-812-pk0",
+    "capacity_requested_kw_ac": 39.57,
+    "capacity_reserved_kw_ac": 545.0,
+    "capacity_available_kw_ac": 324.16,
+    "date_last_updated": "2024-01-18T15:31:21Z"
+  },
+  {
+    "system_id": "romeo-802",
+    "system_created_at": "2024-01-25T14:24:14Z",
+    "system_updated_at": "2024-01-01T01:00:00Z",
+    "program": "uniform--pk1",
+    "capacity_requested_kw_ac": 859.52,
+    "capacity_reserved_kw_ac": 85.83,
+    "capacity_available_kw_ac": 703.77,
+    "date_last_updated": "2024-01-06T09:37:22Z"
+  },
+  {
+    "system_id": "uniform-472",
+    "system_created_at": "2024-01-05T23:22:55Z",
+    "system_updated_at": "2024-01-01T02:00:00Z",
+    "program": "tango-19-pk2",
+    "capacity_requested_kw_ac": 552.86,
+    "capacity_reserved_kw_ac": 688.89,
+    "capacity_available_kw_ac": 844.41,
+    "date_last_updated": "2024-01-05T09:31:56Z"
+  },
+  {
+    "system_id": "xray-679",
+    "system_created_at": "2024-01-12T17:36:12Z",
+    "system_updated_at": "2024-01-01T03:00:00Z",
+    "program": "whiskey--pk3",
+    "capacity_requested_kw_ac": 517.12,
+    "capacity_reserved_kw_ac": 709.13,
+    "capacity_available_kw_ac": 189.09,
+    "date_last_updated": "2024-01-08T13:43:31Z"
+  },
+  {
+    "system_id": "lima-105",
+    "system_created_at": "2024-01-06T08:49:38Z",
+    "system_updated_at": "2024-01-01T04:00:00Z",
+    "program": "delta-78-pk4",
+    "capacity_requested_kw_ac": 384.22,
+    "capacity_reserved_kw_ac": 554.47,
+    "capacity_available_kw_ac": 344.53,
+    "date_last_updated": "2024-01-01T07:50:37Z"
+  },
+  {
+    "system_id": "zulu-550",
+    "system_created_at": "2024-01-23T00:56:36Z",
+    "system_updated_at": "2024-01-01T05:00:00Z",
+    "program": "charlie--pk5",
+    "capacity_requested_kw_ac": 658.94,
+    "capacity_reserved_kw_ac": 85.78,
+    "capacity_available_kw_ac": 850.06,
+    "date_last_updated": "2024-01-17T09:15:38Z"
+  },
+  {
+    "system_id": "whiskey-747",
+    "system_created_at": "2024-01-20T04:17:18Z",
+    "system_updated_at": "2024-01-01T06:00:00Z",
+    "program": "victor-6-pk6",
+    "capacity_requested_kw_ac": 538.47,
+    "capacity_reserved_kw_ac": 809.56,
+    "capacity_available_kw_ac": 69.68,
+    "date_last_updated": "2024-01-07T18:58:06Z"
+  },
+  {
+    "system_id": "november-289",
+    "system_created_at": "2024-01-09T23:35:50Z",
+    "system_updated_at": "2024-01-01T07:00:00Z",
+    "program": "sierra-4-pk7",
+    "capacity_requested_kw_ac": 623.03,
+    "capacity_reserved_kw_ac": 135.49,
+    "capacity_available_kw_ac": 148.24,
+    "date_last_updated": "2024-01-12T19:14:50Z"
+  }
+]
