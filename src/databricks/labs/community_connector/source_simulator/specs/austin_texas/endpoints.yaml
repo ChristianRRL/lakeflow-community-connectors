@@ -1,0 +1,27 @@
+# City of Austin, Texas open-data portal (Socrata SODA API).
+#
+# Single-table scope: the "Green Building Ratings Aggregate" dataset
+# (resource id dpvb-c5fy) served at /resource/dpvb-c5fy.json.
+#
+# Response shape: a bare JSON array of row objects (no wrapper envelope).
+# Pagination: SODA offset/limit via the $offset and $limit query params.
+# The connector pages with a stable $order and stops when a short page is
+# returned. The dataset is a snapshot (no incremental cursor), so no
+# future-record synthesis is needed for termination.
+
+endpoints:
+  - path: "/resource/dpvb-c5fy.json"
+    method: GET
+    corpus: green_building_ratings_aggregate
+    response:
+      pagination_style: offset_limit
+    params:
+      "$limit":  {role: limit, default: 1000, max: 50000}
+      "$offset": {role: offset}
+      # Deterministic sort clause the connector always sends; the simulator
+      # serves from the corpus without needing to honor it.
+      "$order":  {role: ignore}
+      # SoQL params the connector may send in other configurations; accepted
+      # and ignored by the simulator.
+      "$where":  {role: ignore}
+      "$select": {role: ignore}

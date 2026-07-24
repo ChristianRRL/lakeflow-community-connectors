@@ -1,0 +1,27 @@
+# Austin, Texas Community Connector Spec
+# This file defines the specification for the Austin, Texas Socrata SODA API connector
+# including connection parameters and allowlist options.
+
+# ============================================================================
+# Connection Parameters
+# Socrata application token is optional: public datasets are readable without
+# authentication. When absent the connector shares the anonymous per-IP
+# throttling pool. Supply a token to increase rate limits and get priority access.
+# ============================================================================
+connection:
+  parameters:
+    - name: app_token
+      type: string
+      required: false
+      description: >
+        Optional Socrata application token for increased rate limits.
+        When provided, used as the X-App-Token header in requests.
+        Public datasets (like green_building_ratings_aggregate) work without a token.
+        If omitted, requests share the anonymous per-IP throttling pool.
+
+# ============================================================================
+# External Options Allowlist
+# Table-specific options that can be passed through via UC connection's
+# externalOptionsAllowList parameter.
+# ============================================================================
+external_options_allowlist: "page_size"
