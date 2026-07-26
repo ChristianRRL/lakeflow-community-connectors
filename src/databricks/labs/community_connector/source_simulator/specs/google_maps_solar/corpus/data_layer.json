@@ -1,0 +1,24 @@
+{
+  "imageryDate": { "year": 2022, "month": 4, "day": 6 },
+  "imageryProcessedDate": { "year": 2023, "month": 8, "day": 4 },
+  "dsmUrl": "https://solar.googleapis.com/v1/geoTiff:get?id=fbde33e9cd16d5fd10d19a19dc580bc1-dsm",
+  "rgbUrl": "https://solar.googleapis.com/v1/geoTiff:get?id=fbde33e9cd16d5fd10d19a19dc580bc1-rgb",
+  "maskUrl": "https://solar.googleapis.com/v1/geoTiff:get?id=fbde33e9cd16d5fd10d19a19dc580bc1-mask",
+  "annualFluxUrl": "https://solar.googleapis.com/v1/geoTiff:get?id=fbde33e9cd16d5fd10d19a19dc580bc1-annualflux",
+  "monthlyFluxUrl": "https://solar.googleapis.com/v1/geoTiff:get?id=fbde33e9cd16d5fd10d19a19dc580bc1-monthlyflux",
+  "hourlyShadeUrls": [
+    "https://solar.googleapis.com/v1/geoTiff:get?id=fbde33e9cd16d5fd10d19a19dc580bc1-shade-01",
+    "https://solar.googleapis.com/v1/geoTiff:get?id=fbde33e9cd16d5fd10d19a19dc580bc1-shade-02",
+    "https://solar.googleapis.com/v1/geoTiff:get?id=fbde33e9cd16d5fd10d19a19dc580bc1-shade-03",
+    "https://solar.googleapis.com/v1/geoTiff:get?id=fbde33e9cd16d5fd10d19a19dc580bc1-shade-04",
+    "https://solar.googleapis.com/v1/geoTiff:get?id=fbde33e9cd16d5fd10d19a19dc580bc1-shade-05",
+    "https://solar.googleapis.com/v1/geoTiff:get?id=fbde33e9cd16d5fd10d19a19dc580bc1-shade-06",
+    "https://solar.googleapis.com/v1/geoTiff:get?id=fbde33e9cd16d5fd10d19a19dc580bc1-shade-07",
+    "https://solar.googleapis.com/v1/geoTiff:get?id=fbde33e9cd16d5fd10d19a19dc580bc1-shade-08",
+    "https://solar.googleapis.com/v1/geoTiff:get?id=fbde33e9cd16d5fd10d19a19dc580bc1-shade-09",
+    "https://solar.googleapis.com/v1/geoTiff:get?id=fbde33e9cd16d5fd10d19a19dc580bc1-shade-10",
+    "https://solar.googleapis.com/v1/geoTiff:get?id=fbde33e9cd16d5fd10d19a19dc580bc1-shade-11",
+    "https://solar.googleapis.com/v1/geoTiff:get?id=fbde33e9cd16d5fd10d19a19dc580bc1-shade-12"
+  ],
+  "imageryQuality": "HIGH"
+}

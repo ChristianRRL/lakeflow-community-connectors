@@ -1,0 +1,48 @@
+# Google Maps Solar Community Connector Spec
+# This file defines the specification for the connector including
+# connection parameters and allowlist options.
+
+# ============================================================================
+# Connection Parameters
+# These are provided when creating the Unity Catalog connection.
+# ============================================================================
+connection:
+  parameters:
+    - name: api_key
+      type: string
+      required: true
+      description: >
+        Google Maps Platform API key with the Solar API enabled.
+        Obtain from https://console.cloud.google.com after enabling the Solar API.
+
+    - name: base_url
+      type: string
+      required: false
+      description: >
+        Base URL for the Solar API. Defaults to https://solar.googleapis.com.
+        Override if using a custom endpoint or proxy.
+
+# ============================================================================
+# External Options Allowlist
+# These table-specific options must be included in the externalOptionsAllowList
+# parameter of the UC connection to allow them to be passed through.
+# Use a comma-separated string of option names.
+# ============================================================================
+external_options_allowlist: >
+  locations,
+  latitude,
+  longitude,
+  location.latitude,
+  location.longitude,
+  skip_not_found,
+  requiredQuality,
+  exactQualityRequired,
+  experiments,
+  additionalInsights,
+  radiusMeters,
+  view,
+  pixelSizeMeters,
+  layer_types,
+  max_assets_per_location,
+  asset_ids,
+  layer_type

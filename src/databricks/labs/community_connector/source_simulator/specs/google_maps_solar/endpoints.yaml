@@ -1,0 +1,75 @@
+# Google Maps Platform Solar API (https://solar.googleapis.com, REST v1).
+#
+# Three single-resource lookup endpoints — no pagination, no cursors, no
+# collection semantics. Every entry therefore uses
+# ``pagination_style: none``; the two JSON endpoints use
+# ``single_entity: true`` so the corpus dict is returned verbatim (the live
+# API returns one object, never an array).
+#
+# Auth is an API key in the ``key`` query param — declared as ``ignore`` on
+# every endpoint so the simulator accepts but does not act on it.
+#
+# ``geoTiff:get`` returns raw ``image/tiff`` bytes rather than JSON, which the
+# declarative spec cannot express, so it drops to a custom handler that
+# synthesizes a deterministic pseudo-raster per asset id.
+#
+# Corpus files are named in the singular (``building_insight``,
+# ``data_layer``) so they are not clobbered by the schema-bootstrapped
+# ``<table>.json`` files that ``tools.corpus_from_schema`` writes.
+
+endpoints:
+  # ---- buildingInsights:findClosest ----
+  # Solar potential of the building nearest the query point.
+  - path: "/v1/buildingInsights:findClosest"
+    method: GET
+    corpus: building_insight
+    response:
+      single_entity: true
+      pagination_style: none
+      # Google returns NOT_FOUND where it has no coverage; the connector
+      # treats that as "no rows for this location", not an error.
+      expected_status_codes: [200, 404]
+    params:
+      location.latitude:    {role: ignore}
+      location.longitude:   {role: ignore}
+      requiredQuality:      {role: ignore}
+      exactQualityRequired: {role: ignore}
+      experiments:          {role: ignore}
+      additionalInsights:   {role: ignore}
+      key:                  {role: ignore}
+
+  # ---- dataLayers:get ----
+  # Metadata + signed URLs pointing at downloadable GeoTIFF rasters. The
+  # corpus URLs are shaped like the live ones (absolute geoTiff:get URLs
+  # carrying an ``id`` param) so the connector's URL-parsing branch is
+  # exercised offline exactly as it is against the live API.
+  - path: "/v1/dataLayers:get"
+    method: GET
+    corpus: data_layer
+    response:
+      single_entity: true
+      pagination_style: none
+      expected_status_codes: [200, 404]
+    params:
+      location.latitude:    {role: ignore}
+      location.longitude:   {role: ignore}
+      radiusMeters:         {role: ignore}
+      view:                 {role: ignore}
+      requiredQuality:      {role: ignore}
+      pixelSizeMeters:      {role: ignore}
+      exactQualityRequired: {role: ignore}
+      experiments:          {role: ignore}
+      key:                  {role: ignore}
+
+  # ---- geoTiff:get ----
+  # Raw raster bytes (Content-Type: image/tiff), NOT JSON. The connector
+  # reads ``response.content`` + the Content-Type header, so the handler
+  # returns real binary rather than a JSON stand-in.
+  - path: "/v1/geoTiff:get"
+    method: GET
+    handler: databricks.labs.community_connector.source_simulator.specs.google_maps_solar.handlers:geo_tiff_handler
+    response:
+      pagination_style: none
+    params:
+      id:  {role: ignore}
+      key: {role: ignore}
